@@ -1,0 +1,17 @@
+body {
+    padding: 20px;
+}
+
+.answers {
+    padding: 15px;
+}
+
+.answer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#addAnswer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
