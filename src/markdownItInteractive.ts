@@ -1,4 +1,5 @@
 import MarkdownIt = require('markdown-it');
+import transform from './transformInteractiveElements';
 //import { transform } from 'markmap-lib/dist/transform';
 //import { Base64 } from 'js-base64';
 
@@ -16,8 +17,9 @@ export default function markdownItIteractive(md: MarkdownIt) {
                 //const { root } = transform(token.content);
                 //const data = { attrs: Object.assign({}, ...attrs), root };
                 //const data = { attrs: Object.assign({}, ...attrs), root };
+                let HTMLSnippet = transform(token.info, token.content);
 
-                return `<div class="test">${token.content}</div>`;
+                return HTMLSnippet;
             } catch (ex) {
                 return `<pre>${ex}</pre>`
             }
