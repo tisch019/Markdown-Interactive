@@ -12,7 +12,7 @@ export default function transform(contentType: String, content: any) {
                });
                HTMLSnippet += '</div></div>';
           }); 
-           return HTMLSnippet; 
+           return HTMLSnippet;
         } 
         case 'galery': { 
            //statements; 

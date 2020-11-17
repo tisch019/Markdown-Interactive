@@ -5,8 +5,8 @@ function addAnswer(e) {
     var answer = document.createElement("div");
     answer.classList.add("answer", "row");
     answer.innerHTML = `<input type="checkbox" class="correctAnswer col-1">
-                <input type="text" class="form-control answerInput col-10" placeholder="Antwort eingeben">
-                <button type="button" class="btn btn-danger col-1" onclick="removeAnswer(event)">Löschen</button>`;
+                <input type="text" class="form-control answerInput col-9" placeholder="Antwort eingeben">
+                <button type="button" class="btn btn-danger col-2" onclick="removeAnswer(event)">Löschen</button>`;
     e.target.parentNode.insertBefore(answer, e.target);
 }
 
@@ -17,13 +17,13 @@ function removeAnswer(e) {
 function addQuestion(e) {
     var question = document.createElement("div");
     question.classList.add("question", "row");
-    question.innerHTML = `<input type="text" class="form-control questionInput col-11" placeholder="Frage eingeben">
-            <button type="button" class="btn btn-danger col-1" onclick="removeQuestion(event)">Löschen</button>
+    question.innerHTML = `<input type="text" class="form-control questionInput col-10" placeholder="Frage eingeben">
+            <button type="button" class="btn btn-danger col-2" onclick="removeQuestion(event)">Löschen</button>
             <div class="answers container-fluid">
                 <div class="answer row">
                 <input type="checkbox" class="correctAnswer col-1">
-                <input type="text" class="form-control answerInput col-10" placeholder="Antwort eingeben">
-                <button type="button" class="btn btn-danger col-1" onclick="removeAnswer(event)">Löschen</button>
+                <input type="text" class="form-control answerInput col-9" placeholder="Antwort eingeben">
+                <button type="button" class="btn btn-danger col-2" onclick="removeAnswer(event)">Löschen</button>
                 </div>
                 <button type="button" class="btn btn-success" onclick="addAnswer(event)">Antwort
                 hinzufügen</button>

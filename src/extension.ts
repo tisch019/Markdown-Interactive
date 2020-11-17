@@ -118,13 +118,13 @@ function getWebviewContent(webview: vscode.Webview, extensionUri: any) {
 			  <form>
 				<div class="container-fluid">
 				  <div class="question row">
-					<input type="text" class="form-control questionInput col-11" placeholder="Frage eingeben">
-					<button type="button" class="btn btn-danger col-1" onclick="removeQuestion(event)">Löschen</button>
+					<input type="text" class="form-control questionInput col-10" placeholder="Frage eingeben">
+					<button type="button" class="btn btn-danger col-2" onclick="removeQuestion(event)">Löschen</button>
 					<div class="answers container-fluid">
 					  <div class="answer row">
 						<input type="checkbox" class="correctAnswer col-1">
-						<input type="text" class="form-control answerInput col-10" placeholder="Antwort eingeben">
-						<button type="button" class="btn btn-danger col-1" onclick="removeAnswer(event)">Löschen</button>
+						<input type="text" class="form-control answerInput col-9" placeholder="Antwort eingeben">
+						<button type="button" class="btn btn-danger col-2" onclick="removeAnswer(event)">Löschen</button>
 					  </div>
 					  <button type="button" class="btn btn-success" onclick="addAnswer(event)">Antwort
 						hinzufügen</button>
@@ -147,18 +147,28 @@ function getWebviewContent(webview: vscode.Webview, extensionUri: any) {
 			<h5 class="mb-0">
 			  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
 				aria-controls="collapseTwo">
-				Collapsible Group Item #2
+				Gallery
 			  </button>
 			</h5>
 		  </div>
 		  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-			<div class="card-body">
-			  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-			  officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-			  moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-			  keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-			  butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-			  haven't heard of them accusamus labore sustainable VHS.
+		  	<div class="card-body">
+				<form>
+					<div class="container-fluid">
+					<div class="galleryElement row">
+						<input type="text" class="form-control imgPathInput col-12" placeholder="Bild URL eingeben">
+						<input type="text" class="form-control imgPathInput col-12" placeholder="Bild Beschreibung eingeben">
+						<button type="button" class="btn btn-danger col-1" onclick="removeGalleryElement(event)">Löschen</button>
+					</div>
+					<button type="button" class="btn btn-success" onclick="addGalleryElement(event)">Bild
+					hinzufügen</button>
+					</div>
+					<div class="container-fluid">
+					<div class="row">
+					<button type="button" class="btn btn-primary col-4 offset-4" onclick="parseGallery()">In Markdown überführen</button>
+					</div>
+					</div>
+				</form>
 			</div>
 		  </div>
 		</div>
