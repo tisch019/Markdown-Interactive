@@ -52,6 +52,33 @@ function parseMultipleChoiceTest() {
     sendToVSC("mctest",mctest);
 }
 
+function addGalleryElement(e) {
+    var galleryElement = document.createElement("div");
+    galleryElement.classList.add("galleryElement", "row");
+    galleryElement.innerHTML = `<input type="text" class="form-control imgPathInput col-12" placeholder="Bild URL eingeben">
+    <input type="text" class="form-control imgDescriptionInput col-12" placeholder="Bild Beschreibung eingeben">
+    <button type="button" class="btn btn-danger col-2" onclick="removeGalleryElement(event)">Löschen</button>`;
+    e.target.parentNode.insertBefore(galleryElement, e.target);
+}
+
+function removeGalleryElement(e) {
+    e.target.parentNode.remove();
+}
+
+function parseGallery() {
+    let gallery = [];
+    let galleryElements = document.querySelectorAll(".galleryElement");
+    console.log("test");
+    galleryElements.forEach(function(galleryElement) {
+        let jsonElement = {};
+        jsonElement.path = galleryElement.getElementsByClassName("imgPathInput")[0].value;
+        jsonElement.description = galleryElement.getElementsByClassName("imgDescriptionInput")[0].value;
+        gallery.push(jsonElement);
+    });
+    console.log(gallery);
+    sendToVSC("gallery",gallery);
+}
+
 function sendToVSC (command, code) {
     vscode.postMessage({
         command: command,

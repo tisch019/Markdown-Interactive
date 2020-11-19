@@ -4,7 +4,7 @@ import transform from './transformInteractiveElements';
 //import { Base64 } from 'js-base64';
 
 //const _idRecognizer = /^\s*(markmap|mdmm|mmmd)((\s+|:|\{)[^`~]*)?$/i;
-const _idRecognizer = /^(mctest|galery|quiz)$/i;
+const _idRecognizer = /^(mctest|gallery|quiz)$/i;
 
 export default function markdownItIteractive(md: MarkdownIt) {
     const fallback = md.renderer.rules.fence?.bind(md.renderer.rules);

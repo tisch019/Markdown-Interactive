@@ -16,9 +16,9 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "helloworld.addElement",
+				"command": "markdown.addElement",
 				"title": "Add interactive Element",
-				"category": "helloworld",
+				"category": "markdown",
 				"icon": "resources/magier_white.svg"
 			}
 		],
@@ -26,7 +26,12 @@
 			"editor/title": [
 				{
 					"when": "resourceLangId == markdown",
-					"command": "helloworld.addElement",
+					"command": "markdown.addElement",
+					"group": "navigation"
+				},
+				{
+					"when": "resourceLangId == markdown",
+					"command": "markdown.extension.printToHtml",
 					"group": "navigation"
 				}
 			]

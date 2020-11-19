@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('helloworld.addElement', () => {
+	let disposable = vscode.commands.registerCommand('markdown.addElement', () => {
 		// The code you place here will be executed every time your command is executed
 		const columnToShowIn = vscode.window.activeTextEditor
         ? vscode.window.activeTextEditor.viewColumn
@@ -50,6 +50,10 @@ export function activate(context: vscode.ExtensionContext) {
 				  editor?.insertSnippet(new vscode.SnippetString(markdownSnippet));
 				  vscode.window.showErrorMessage(message.text);
 				  return;
+				case 'gallery':
+				editor?.insertSnippet(new vscode.SnippetString("```gallery\n" + JSON.stringify(message.text) + "\n```"));
+				vscode.window.showErrorMessage(message.text);
+				return;
 			  }
 			},
 			undefined,
@@ -157,8 +161,8 @@ function getWebviewContent(webview: vscode.Webview, extensionUri: any) {
 					<div class="container-fluid">
 					<div class="galleryElement row">
 						<input type="text" class="form-control imgPathInput col-12" placeholder="Bild URL eingeben">
-						<input type="text" class="form-control imgPathInput col-12" placeholder="Bild Beschreibung eingeben">
-						<button type="button" class="btn btn-danger col-1" onclick="removeGalleryElement(event)">Löschen</button>
+						<input type="text" class="form-control imgDescriptionInput col-12" placeholder="Bild Beschreibung eingeben">
+						<button type="button" class="btn btn-danger col-2" onclick="removeGalleryElement(event)">Löschen</button>
 					</div>
 					<button type="button" class="btn btn-success" onclick="addGalleryElement(event)">Bild
 					hinzufügen</button>
