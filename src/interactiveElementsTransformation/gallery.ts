@@ -207,11 +207,9 @@ export default function transform(content: any){
 
     function showSlides(e, n) {
     var i;
-    console.log(e.target);
     var modal = e.target.closest('.gallery').querySelectorAll('.modal-content')[0];
-    console.log(modal);
     var slides = modal.querySelectorAll(".mySlides");
-    var captionText = modal.getElementById("caption");
+    var captionText = modal.querySelectorAll("#caption")[0];
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
