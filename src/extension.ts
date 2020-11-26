@@ -44,6 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		  currentPanel.webview.onDidReceiveMessage(
 			message => {
+				//ohne switch, command direkt in Code Block setzen.
 			  switch (message.command) {
 				case 'mctest':
 				  let markdownSnippet = "```mctest\n" + JSON.stringify(message.text) + "\n```";
@@ -51,7 +52,11 @@ export function activate(context: vscode.ExtensionContext) {
 				  vscode.window.showErrorMessage(message.text);
 				  return;
 				case 'gallery':
-				editor?.insertSnippet(new vscode.SnippetString("```gallery\n" + JSON.stringify(message.text) + "\n```"));
+				editor?.insertSnippet(
+					new vscode.SnippetString(
+						"```gallery\n" + JSON.stringify(message.text) + "\n```"
+					)
+				);
 				vscode.window.showErrorMessage(message.text);
 				return;
 			  }

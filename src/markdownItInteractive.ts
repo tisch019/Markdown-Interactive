@@ -14,9 +14,6 @@ export default function markdownItIteractive(md: MarkdownIt) {
         if (_idRecognizer.test(token.info)) {
             try {
                 const attrs = token.attrs ? token.attrs.map(e => ({ [e[0].toLowerCase()]: e[1] })) : [];
-                //const { root } = transform(token.content);
-                //const data = { attrs: Object.assign({}, ...attrs), root };
-                //const data = { attrs: Object.assign({}, ...attrs), root };
                 let HTMLSnippet = transform(token.info, token.content);
 
                 return HTMLSnippet;

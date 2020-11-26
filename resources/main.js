@@ -44,11 +44,15 @@ function parseMultipleChoiceTest() {
         let allAnswers = question.querySelectorAll(".answer");
         jsonElement.answers = [];
         allAnswers.forEach(function(answer) {
-            jsonElement.answers.push([answer.querySelectorAll(".answerInput")[0].value,answer.querySelectorAll(".correctAnswer")[0].checked]);
+            jsonElement.answers.push(
+                [
+                    answer.querySelectorAll(".answerInput")[0].value,
+                    answer.querySelectorAll(".correctAnswer")[0].checked
+                ]
+            );
         })
         mctest.push(jsonElement);
     });
-    console.log(mctest);
     sendToVSC("mctest",mctest);
 }
 
@@ -75,7 +79,6 @@ function parseGallery() {
         jsonElement.description = galleryElement.getElementsByClassName("imgDescriptionInput")[0].value;
         gallery.push(jsonElement);
     });
-    console.log(gallery);
     sendToVSC("gallery",gallery);
 }
 
