@@ -1,5 +1,5 @@
-import mctest from './interactiveElementsTransformation/mctest'
-import gallery from './interactiveElementsTransformation/gallery'
+import mctest from './interactiveElementsTransformation/mctest';
+import gallery from './interactiveElementsTransformation/gallery';
 
 export default function transform(contentType: String, content: any) {
     switch(contentType) { 

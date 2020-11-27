@@ -1,9 +1,6 @@
 import MarkdownIt = require('markdown-it');
 import transform from './transformInteractiveElements';
-//import { transform } from 'markmap-lib/dist/transform';
-//import { Base64 } from 'js-base64';
 
-//const _idRecognizer = /^\s*(markmap|mdmm|mmmd)((\s+|:|\{)[^`~]*)?$/i;
 const _idRecognizer = /^(mctest|gallery|quiz)$/i;
 
 export default function markdownItIteractive(md: MarkdownIt) {
@@ -13,12 +10,11 @@ export default function markdownItIteractive(md: MarkdownIt) {
         const token = tokens[idx];
         if (_idRecognizer.test(token.info)) {
             try {
-                const attrs = token.attrs ? token.attrs.map(e => ({ [e[0].toLowerCase()]: e[1] })) : [];
-                let HTMLSnippet = transform(token.info, token.content);
+                let htmlSnippet = transform(token.info, token.content);
 
-                return HTMLSnippet;
+                return htmlSnippet;
             } catch (ex) {
-                return `<pre>${ex}</pre>`
+                return `<pre>${ex}</pre>`;
             }
         }
 
