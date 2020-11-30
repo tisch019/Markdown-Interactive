@@ -186,7 +186,7 @@ function getWebviewContent(webview: vscode.Webview, extensionUri: any) {
 			<h5 class="mb-0">
 			  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
 				aria-expanded="false" aria-controls="collapseThree">
-				Collapsible Group Item #3
+				Map
 			  </button>
 			</h5>
 		  </div>
