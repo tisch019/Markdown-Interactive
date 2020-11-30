@@ -1,5 +1,5 @@
 export default function transform(content: any){ 
-    let HTMLSnippet: string = `<div class="gallery">
+    let htmlSnippet: string = `<div class="gallery">
      <style scoped>
         .gallery{
             margin-top: 30px;
@@ -13,13 +13,7 @@ export default function transform(content: any){
 
         .column {
             position: relative;
-        }
-        .column:after {
-            content: url("/img/lupe1.png");
-            position: absolute;
-            left: 0;
-            top: 0;
-        }    
+        }  
 
         .column img{
             margin: 0 20px 0 0;
@@ -159,22 +153,22 @@ export default function transform(content: any){
     let contentJson = JSON.parse(content);
     let counter = 1;
     contentJson.forEach(function (galleryElement: any) {
-        HTMLSnippet += '<div class="column"> <img src="' + galleryElement.path + '" onclick="openModal(event);currentSlide(event,' + counter + ')" class="hover-shadow"> </div>';
+        htmlSnippet += '<div class="column"> <img src="' + galleryElement.path + '" onclick="openModal(event);currentSlide(event,' + counter + ')" class="hover-shadow"> </div>';
         counter++;
     });
     let quantity = counter-1;
     counter = 1;
-    HTMLSnippet += `</div><div id="myModal" class="modal"> <span class="close cursor" onclick="closeModal(event)">&times;</span>
+    htmlSnippet += `</div><div id="myModal" class="modal"> <span class="close cursor" onclick="closeModal(event)">&times;</span>
     <div class="modal-content">`;
     contentJson.forEach(function (galleryElement: any) {
-        HTMLSnippet += `
+        htmlSnippet += `
         <div class="mySlides">
             <div class="numbertext">${counter} / ${quantity}</div>
             <img src="${galleryElement.path}" >
-        </div>`
+        </div>`;
         counter++;
     });
-    HTMLSnippet += `
+    htmlSnippet += `
         <!-- Next/previous controls --> 
         <a class="prev" onclick="plusSlides(event, -1)">&#10094;</a> <a class="next" onclick="plusSlides(event, 1)">&#10095;</a> 
         
@@ -217,6 +211,6 @@ export default function transform(content: any){
     }
     slides[slideIndex-1].style.display = "flex";
     }
-    </script></div>`
-    return HTMLSnippet;
+    </script></div>`;
+    return htmlSnippet;
  } 

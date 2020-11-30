@@ -165,11 +165,11 @@ function getWebviewContent(webview: vscode.Webview, extensionUri: any) {
 				<form>
 					<div class="container-fluid">
 					<div class="galleryElement row">
-						<input type="text" class="form-control imgPathInput col-12" placeholder="Bild URL eingeben">
-						<input type="text" class="form-control imgDescriptionInput col-12" placeholder="Bild Beschreibung eingeben">
-						<button type="button" class="btn btn-danger col-2" onclick="removeGalleryElement(event)">Löschen</button>
+						<input type="text" class="form-control imgPathInput col-12 mt-2" placeholder="Bild URL eingeben">
+						<input type="text" class="form-control imgDescriptionInput col-12 mt-2" placeholder="Bild Beschreibung eingeben">
+						<button type="button" class="btn btn-danger col-2 mt-2" onclick="removeGalleryElement(event)">Löschen</button>
 					</div>
-					<button type="button" class="btn btn-success" onclick="addGalleryElement(event)">Bild
+					<button type="button" class="btn btn-success mt-2" onclick="addGalleryElement(event)">Bild
 					hinzufügen</button>
 					</div>
 					<div class="container-fluid">

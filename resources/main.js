@@ -59,9 +59,9 @@ function parseMultipleChoiceTest() {
 function addGalleryElement(e) {
     var galleryElement = document.createElement("div");
     galleryElement.classList.add("galleryElement", "row");
-    galleryElement.innerHTML = `<input type="text" class="form-control imgPathInput col-12" placeholder="Bild URL eingeben">
-    <input type="text" class="form-control imgDescriptionInput col-12" placeholder="Bild Beschreibung eingeben">
-    <button type="button" class="btn btn-danger col-2" onclick="removeGalleryElement(event)">Löschen</button>`;
+    galleryElement.innerHTML = `<input type="text" class="form-control imgPathInput col-12 mt-2" placeholder="Bild URL eingeben">
+    <input type="text" class="form-control imgDescriptionInput col-12 mt-2" placeholder="Bild Beschreibung eingeben">
+    <button type="button" class="btn btn-danger col-2 mt-2" onclick="removeGalleryElement(event)">Löschen</button>`;
     e.target.parentNode.insertBefore(galleryElement, e.target);
 }
 

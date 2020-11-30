@@ -5,7 +5,6 @@ const _idRecognizer = /^(mctest|gallery|quiz)$/i;
 
 export default function markdownItIteractive(md: MarkdownIt) {
     const fallback = md.renderer.rules.fence?.bind(md.renderer.rules);
-
     md.renderer.rules.fence = (tokens, idx, options, env, self) => {
         const token = tokens[idx];
         if (_idRecognizer.test(token.info)) {
