@@ -50,9 +50,10 @@ function parseMultipleChoiceTest() {
                     answer.querySelectorAll(".correctAnswer")[0].checked
                 ]
             );
-        })
+        });
         mctest.push(jsonElement);
     });
+    console.log("test");
     sendToVSC("mctest",mctest);
 }
 
@@ -72,7 +73,6 @@ function removeGalleryElement(e) {
 function parseGallery() {
     let gallery = [];
     let galleryElements = document.querySelectorAll(".galleryElement");
-    console.log("test");
     galleryElements.forEach(function(galleryElement) {
         let jsonElement = {};
         jsonElement.path = galleryElement.getElementsByClassName("imgPathInput")[0].value;
@@ -82,9 +82,28 @@ function parseGallery() {
     sendToVSC("gallery",gallery);
 }
 
+function syncronizeRangeInputField (sliderSelector, inputSelector) {
+    const slider = document.querySelector(sliderSelector);
+    const output = document.querySelector(inputSelector);
+    output.value = slider.value;
+    slider.addEventListener ("input", function () {
+        output.value = this.value;
+    });
+    output.addEventListener ("input", function () {
+        console.log(slider.value);
+        slider.value = this.value;
+        console.log(slider.value);
+    });
+}
+
 function sendToVSC (command, code) {
     vscode.postMessage({
         command: command,
         text: code
     });
+}
+
+function init(){
+    syncronizeRangeInputField ("#map-width", ".map-width-input");
+    syncronizeRangeInputField ("#map-height", ".map-height-input");
 }

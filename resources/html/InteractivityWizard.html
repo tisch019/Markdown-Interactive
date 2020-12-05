@@ -85,18 +85,66 @@
     <h5 class="mb-0">
       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
       aria-expanded="false" aria-controls="collapseThree">
-      Collapsible Group Item #3
+      map
       </button>
     </h5>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
     <div class="card-body">
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-      officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-      moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-      keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-      butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-      haven't heard of them accusamus labore sustainable VHS.
+      <form>
+        <div class="col-12">
+          <div class="form-group">
+              <label for="address">Adresse</label>
+              <input class="form-control" id="address" placeholder="Geben Sie einen Standort ein.">
+          </div>
+          <div class="form-group">
+              <label for="title">Titel</label>
+              <input class="form-control" type="text" id="title">
+          </div>
+          <div class="form-group">
+              <label for="freetext">Beschreibung</label>
+              <textarea class="form-control" type="text" id="freetext"></textarea>
+          </div>
+          <div>Style</div>
+          <div class="form-group">
+              <div class="mapstyle-wrapper">
+                  <input class="form-control" type="radio" name="mapstyle" id="mapstyle-normal" checked="">
+                  <div class="label-wrapper">
+                      <label class="mapstyle-label-normal" for="mapstyle-normal"></label>
+                  </div>
+              </div>
+              <div class="mapstyle-wrapper">
+                  <input class="mapstyle" type="radio" name="mapstyle" id="mapstyle-light">
+                  <div class="label-wrapper">
+                      <label class="mapstyle-label-light" for="mapstyle-light"></label>
+                  </div>
+              </div>
+              <div class="mapstyle-wrapper">
+                  <input class="mapstyle" type="radio" name="mapstyle" id="mapstyle-dark">
+                  <div class="label-wrapper">
+                      <label class="mapstyle-label-dark" for="mapstyle-dark"></label>
+                  </div>
+              </div>
+          </div>
+          <div class="form-group input-group--dimension">
+              <label for="map-width">Breite</label><input class="form-control" type="range" id="map-width" min="100" max="2000" value="400" step="1">
+              <div class="input-wrapper">
+                  <input class="map-width-input" value="400" type="number">
+              </div>
+          </div>
+          <div class="form-group input-group--dimension">
+              <label for="map-height">Höhe</label>
+              <input class="form-control" type="range" id="map-height" min="100" max="2000" value="400" step="1">
+              <div class="input-wrapper">
+                  <input class="map-height-input" value="400" type="number">
+              </div>
+          </div>
+          <div class="form-group input-group--api-key">
+              <label for="api-key">Google Maps API Key (verpflichtend seit 7/2016)</label>
+              <input class="form-control" type="text" id="api-key">
+          </div>
+      </div>
+      </form>
     </div>
     </div>
   </div>
