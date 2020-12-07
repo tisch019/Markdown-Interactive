@@ -3,7 +3,7 @@
 import * as vscode from 'vscode';
 
 import MarkdownIt = require('markdown-it');
-import markdownItInteractive from './markdownItInteractive'
+import markdownItInteractive from './markdownItInteractive';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -47,18 +47,14 @@ export function activate(context: vscode.ExtensionContext) {
 				//ohne switch, command direkt in Code Block setzen.
 			  switch (message.command) {
 				case 'mctest':
-				  let markdownSnippet = "```mctest\n" + JSON.stringify(message.text) + "\n```";
-				  editor?.insertSnippet(new vscode.SnippetString(markdownSnippet));
-				  vscode.window.showErrorMessage(message.text);
+				  editor?.insertSnippet(new vscode.SnippetString("```mctest\n" + JSON.stringify(message.text) + "\n```"));
 				  return;
 				case 'gallery':
-				editor?.insertSnippet(
-					new vscode.SnippetString(
-						"```gallery\n" + JSON.stringify(message.text) + "\n```"
-					)
-				);
-				vscode.window.showErrorMessage(message.text);
-				return;
+					editor?.insertSnippet(new vscode.SnippetString("```gallery\n" + JSON.stringify(message.text) + "\n```"));
+					return;
+				case 'map':
+					editor?.insertSnippet(new vscode.SnippetString("```map\n" + JSON.stringify(message.text) + "\n```"));
+					return;
 			  }
 			},
 			undefined,
@@ -197,15 +193,16 @@ function getWebviewContent(webview: vscode.Webview, extensionUri: any) {
 			<div class="col-12">
 			  <div class="form-group">
 				  <label for="address">Adresse</label>
-				  <input class="form-control" id="address" placeholder="Geben Sie einen Standort ein.">
+				  <input class="form-control" id="address-lat" placeholder="Geben Sie den Breitengrad des Standorts ein.">
+				  <input class="form-control" id="address-long" placeholder="Geben Sie den Längengrad des Standorts ein.">
 			  </div>
 			  <div class="form-group">
 				  <label for="title">Titel</label>
-				  <input class="form-control" type="text" id="title">
+				  <input class="form-control" type="text" id="map-title">
 			  </div>
 			  <div class="form-group">
 				  <label for="freetext">Beschreibung</label>
-				  <textarea class="form-control" type="text" id="freetext"></textarea>
+				  <textarea class="form-control" type="text" id="map-description"></textarea>
 			  </div>
 			  <div>Style</div>
 			  <div class="form-group">
@@ -245,9 +242,11 @@ function getWebviewContent(webview: vscode.Webview, extensionUri: any) {
 				  <label for="api-key">Google Maps API Key (verpflichtend seit 7/2016)</label>
 				  <input class="form-control" type="text" id="api-key">
 			  </div>
+			  <div class="row">
+					<button type="button" class="btn btn-primary col-4 offset-4" onclick="parseMap()">In Markdown überführen</button>
+				</div>
 		  </div>
 		  </form>
-
 			</div>
 		  </div>
 		</div>

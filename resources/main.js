@@ -53,7 +53,6 @@ function parseMultipleChoiceTest() {
         });
         mctest.push(jsonElement);
     });
-    console.log("test");
     sendToVSC("mctest",mctest);
 }
 
@@ -90,10 +89,21 @@ function syncronizeRangeInputField (sliderSelector, inputSelector) {
         output.value = this.value;
     });
     output.addEventListener ("input", function () {
-        console.log(slider.value);
         slider.value = this.value;
-        console.log(slider.value);
     });
+}
+
+function parseMap() {
+    let map = {};
+    map.position = [];
+    map.position[0] = document.getElementById("address-lat").value;
+    map.position[1] = document.getElementById("address-long").value;
+    map.title = document.getElementById("map-title").value;
+    map.description = document.getElementById("map-description").value;
+    map.key = document.getElementById("api-key").value;
+    map.width = document.getElementById("map-width").value;
+    map.height = document.getElementById("map-height").value;
+    sendToVSC("map",map);
 }
 
 function sendToVSC (command, code) {

@@ -36,6 +36,12 @@
 				}
 			]
 		},
+		"markdown.previewStyles": [
+			"./resources/css/interactiveElements.css"
+		],
+		"markdown.previewScripts": [
+			"./resources/js/interactiveElements.js"
+		],
 		"markdown.markdownItPlugins": true
 	},
 	"scripts": {

@@ -1,5 +1,6 @@
 import mctest from './interactiveElementsTransformation/mctest';
 import gallery from './interactiveElementsTransformation/gallery';
+import map from './interactiveElementsTransformation/map';
 
 export default function transform(contentType: String, content: any) {
     switch(contentType) { 
@@ -9,9 +10,8 @@ export default function transform(contentType: String, content: any) {
         case 'gallery':  {
          return gallery(content);
          } 
-        case 'quiz': { 
-            //statements; 
-            break; 
+        case 'map': { 
+            return map(content);
          } 
         default: { 
             return content;
