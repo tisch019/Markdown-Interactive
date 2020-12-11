@@ -1,6 +1,5 @@
 export default function transform(content: any){ 
     let contentJson = JSON.parse(content);
-    console.log(contentJson);
     let htmlSnippet: string = `
     <div class="map">
         <script>

@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "Markdown interactive" is now active!');
+	//console.log('Congratulations, your extension "Markdown interactive" is now active!');
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
@@ -192,9 +192,9 @@ function getWebviewContent(webview: vscode.Webview, extensionUri: any) {
 			<form>
 			<div class="col-12">
 			  <div class="form-group">
-				  <label for="address">Adresse</label>
-				  <input class="form-control" id="address-lat" placeholder="Geben Sie den Breitengrad des Standorts ein.">
-				  <input class="form-control" id="address-long" placeholder="Geben Sie den Längengrad des Standorts ein.">
+				  <label for="address-lat">Standorts</label>
+				  <input class="form-control col-5" id="address-lat" placeholder="Breitengrad"></br>
+				  <input class="form-control col-5" id="address-long" placeholder="Längengrad">
 			  </div>
 			  <div class="form-group">
 				  <label for="title">Titel</label>
@@ -204,36 +204,17 @@ function getWebviewContent(webview: vscode.Webview, extensionUri: any) {
 				  <label for="freetext">Beschreibung</label>
 				  <textarea class="form-control" type="text" id="map-description"></textarea>
 			  </div>
-			  <div>Style</div>
-			  <div class="form-group">
-				  <div class="mapstyle-wrapper">
-					  <input class="form-control" type="radio" name="mapstyle" id="mapstyle-normal" checked="">
-					  <div class="label-wrapper">
-						  <label class="mapstyle-label-normal" for="mapstyle-normal"></label>
-					  </div>
-				  </div>
-				  <div class="mapstyle-wrapper">
-					  <input class="mapstyle" type="radio" name="mapstyle" id="mapstyle-light">
-					  <div class="label-wrapper">
-						  <label class="mapstyle-label-light" for="mapstyle-light"></label>
-					  </div>
-				  </div>
-				  <div class="mapstyle-wrapper">
-					  <input class="mapstyle" type="radio" name="mapstyle" id="mapstyle-dark">
-					  <div class="label-wrapper">
-						  <label class="mapstyle-label-dark" for="mapstyle-dark"></label>
-					  </div>
-				  </div>
-			  </div>
+			  
 			  <div class="form-group input-group--dimension">
-				  <label for="map-width">Breite</label><input class="form-control" type="range" id="map-width" min="100" max="2000" value="400" step="1">
+				  <label for="map-width">Breite</label>
+				  <input class="form-control slide-input" type="range" id="map-width" min="100" max="2000" value="400" step="1">
 				  <div class="input-wrapper">
 					  <input class="map-width-input" value="400" type="number">
 				  </div>
 			  </div>
 			  <div class="form-group input-group--dimension">
 				  <label for="map-height">Höhe</label>
-				  <input class="form-control" type="range" id="map-height" min="100" max="2000" value="400" step="1">
+				  <input class="form-control slide-input" type="range" id="map-height" min="100" max="2000" value="400" step="1">
 				  <div class="input-wrapper">
 					  <input class="map-height-input" value="400" type="number">
 				  </div>
