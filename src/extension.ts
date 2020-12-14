@@ -47,7 +47,7 @@ export function activate(context: vscode.ExtensionContext) {
 				//ohne switch, command direkt in Code Block setzen.
 			  switch (message.command) {
 				case 'mctest':
-				  editor?.insertSnippet(new vscode.SnippetString("```mctest\n" + JSON.stringify(message.text) + "\n```"));
+				  editor?.insertSnippet(new vscode.SnippetString("```mctest\n" + message.text + "\n```"));
 				  return;
 				case 'gallery':
 					editor?.insertSnippet(new vscode.SnippetString("```gallery\n" + JSON.stringify(message.text) + "\n```"));
