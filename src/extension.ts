@@ -50,10 +50,10 @@ export function activate(context: vscode.ExtensionContext) {
 				  editor?.insertSnippet(new vscode.SnippetString("```mctest\n" + message.text + "\n```"));
 				  return;
 				case 'gallery':
-					editor?.insertSnippet(new vscode.SnippetString("```gallery\n" + JSON.stringify(message.text) + "\n```"));
+					editor?.insertSnippet(new vscode.SnippetString("```gallery\n" + message.text + "\n```"));
 					return;
 				case 'map':
-					editor?.insertSnippet(new vscode.SnippetString("```map\n" + JSON.stringify(message.text) + "\n```"));
+					editor?.insertSnippet(new vscode.SnippetString("```map\n" + message.text + "\n```"));
 					return;
 			  }
 			},

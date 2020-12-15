@@ -1,5 +1,7 @@
+const YAML = require('yaml');
+
 export default function transform(content: any){ 
-    let contentJson = JSON.parse(content);
+    let contentYaml = YAML.parse(content);
     let htmlSnippet: string = `
     <div class="map">
         <script>
@@ -7,8 +9,8 @@ export default function transform(content: any){
             var mapOptions = {
               zoom: 15,
               center: new google.maps.LatLng(
-                ${contentJson.position[0]},
-                ${contentJson.position[1]}
+                ${contentYaml.position.lat},
+                ${contentYaml.position.lng}
               ),
               styles: null,
               mapTypeId:
@@ -21,13 +23,13 @@ export default function transform(content: any){
             marker = new google.maps.Marker({
               map: map,
               position: {
-                lat: ${contentJson.position[0]},
-                lng: ${contentJson.position[1]}
+                lat: ${contentYaml.position.lat},
+                lng: ${contentYaml.position.lng}
               }
             });
         
             infowindow = new google.maps.InfoWindow({
-              content: "<strong>${contentJson.title}</strong><div>${contentJson.description}</div>"
+              content: "<strong>${contentYaml.title}</strong><div>${contentYaml.description}</div>"
             });
         
             google.maps.event.addListener(marker, 'click', function() {
@@ -37,10 +39,10 @@ export default function transform(content: any){
             infowindow.open(map, marker);
           }
         </script>
-        <div style="position:relative;height:${contentJson.height}px;width:${contentJson.width}px;line-height:1.3">
-            <div id="googlemap" style="height:${contentJson.height}px;width:${contentJson.width}px;"></div>
+        <div style="position:relative;height:${contentYaml.height}px;width:${contentYaml.width}px;line-height:1.3">
+            <div id="googlemap" style="height:${contentYaml.height}px;width:${contentYaml.width}px;"></div>
         </div>
-        <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=${contentJson.key}&callback=initMap"></script>
+        <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=${contentYaml.key}&callback=initMap"></script>
     </div>`;
     return htmlSnippet;
  } 

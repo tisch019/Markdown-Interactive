@@ -75,14 +75,17 @@ function removeGalleryElement(e) {
 }
 
 function parseGallery() {
-    let gallery = [];
+    let gallery = `{`;
     let galleryElements = document.querySelectorAll(".galleryElement");
+    let elementsCount = galleryElements.length;
     galleryElements.forEach(function(galleryElement) {
-        let jsonElement = {};
-        jsonElement.path = galleryElement.getElementsByClassName("imgPathInput")[0].value;
-        jsonElement.description = galleryElement.getElementsByClassName("imgDescriptionInput")[0].value;
-        gallery.push(jsonElement);
+        gallery+= `\n\t${galleryElement.getElementsByClassName("imgDescriptionInput")[0].value}: ${galleryElement.getElementsByClassName("imgPathInput")[0].value}`;
+        if (elementsCount > 1) {
+            gallery += `,`;
+        }
+        elementsCount--;
     });
+    gallery += `\n}`;
     sendToVSC("gallery",gallery);
 }
 
@@ -99,15 +102,17 @@ function syncronizeRangeInputField (sliderSelector, inputSelector) {
 }
 
 function parseMap() {
-    let map = {};
-    map.position = [];
-    map.position[0] = document.getElementById("address-lat").value;
-    map.position[1] = document.getElementById("address-long").value;
-    map.title = document.getElementById("map-title").value;
-    map.description = document.getElementById("map-description").value;
-    map.key = document.getElementById("api-key").value;
-    map.width = document.getElementById("map-width").value;
-    map.height = document.getElementById("map-height").value;
+    let map = `{
+    position: {
+        lat: ${document.getElementById("address-lat").value},
+        lng: ${document.getElementById("address-long").value}
+    },
+    title: ${document.getElementById("map-title").value},
+    description: ${document.getElementById("map-description").value},
+    key: ${document.getElementById("api-key").value},
+    width: ${document.getElementById("map-width").value},
+    height: ${document.getElementById("map-height").value}
+}`;
     sendToVSC("map",map);
 }
 
