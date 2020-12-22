@@ -36,28 +36,16 @@ function removeQuestion(e) {
 }
 
 function parseMultipleChoiceTest() {
-    let mctest = "{\n";
+    let mctest = "";
     let questions = document.querySelectorAll(".question");
-    let questionCount = questions.length;
     questions.forEach(function(question) {
-        mctest += `\t${question.getElementsByClassName("questionInput")[0].value}: {\n`;
+        mctest += `${question.getElementsByClassName("questionInput")[0].value}:\n`;
         let allAnswers = question.querySelectorAll(".answer");
-        let answerCount = allAnswers.length;
         allAnswers.forEach(function(answer) {
-            mctest += `\t\t${answer.querySelectorAll(".answerInput")[0].value}: ${answer.querySelectorAll(".correctAnswer")[0].checked}`;
-            if (answerCount > 1) {
-                mctest += `,`;
-            }
-            mctest += `\n`;
-            answerCount--;
+            mctest += `\t${answer.querySelectorAll(".answerInput")[0].value}: ${answer.querySelectorAll(".correctAnswer")[0].checked}\n`;
         });
-        mctest += `\t}`;
-        if(questionCount > 1){
-            mctest += `,\n`;
-        }
-        questionCount--;
     });
-    mctest += `\n}`;
+    mctest = mctest.substring(0, mctest.length - 1);
     sendToVSC("mctest",mctest);
 }
 
