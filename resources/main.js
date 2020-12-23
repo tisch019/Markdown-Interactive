@@ -63,17 +63,16 @@ function removeGalleryElement(e) {
 }
 
 function parseGallery() {
-    let gallery = `{`;
+    let gallery = ``;
     let galleryElements = document.querySelectorAll(".galleryElement");
     let elementsCount = galleryElements.length;
     galleryElements.forEach(function(galleryElement) {
-        gallery+= `\n\t${galleryElement.getElementsByClassName("imgDescriptionInput")[0].value}: ${galleryElement.getElementsByClassName("imgPathInput")[0].value}`;
+        gallery+= `${galleryElement.getElementsByClassName("imgDescriptionInput")[0].value}: ${galleryElement.getElementsByClassName("imgPathInput")[0].value}`;
         if (elementsCount > 1) {
-            gallery += `,`;
+            gallery += `\n`;
         }
         elementsCount--;
     });
-    gallery += `\n}`;
     sendToVSC("gallery",gallery);
 }
 
@@ -90,17 +89,15 @@ function syncronizeRangeInputField (sliderSelector, inputSelector) {
 }
 
 function parseMap() {
-    let map = `{
-    position: {
-        lat: ${document.getElementById("address-lat").value},
-        lng: ${document.getElementById("address-long").value}
-    },
-    title: ${document.getElementById("map-title").value},
-    description: ${document.getElementById("map-description").value},
-    key: ${document.getElementById("api-key").value},
-    width: ${document.getElementById("map-width").value},
-    height: ${document.getElementById("map-height").value}
-}`;
+    let map = 
+`position:
+    lat: ${document.getElementById("address-lat").value}
+    lng: ${document.getElementById("address-long").value}
+title: ${document.getElementById("map-title").value}
+description: ${document.getElementById("map-description").value}
+key: ${document.getElementById("api-key").value}
+width: ${document.getElementById("map-width").value}
+height: ${document.getElementById("map-height").value}`;
     sendToVSC("map",map);
 }
 
