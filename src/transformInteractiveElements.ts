@@ -16,7 +16,5 @@ export default function transform(contentType: String, content: any) {
         default: { 
             return content;
         } 
-     } 
-    
-        return content;
+     }
 };
